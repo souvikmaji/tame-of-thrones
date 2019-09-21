@@ -12,7 +12,7 @@ func (k *Kingdom) makeAlliance(name, msg string) {
 	emblem := k.emblem(name)
 
 	if isAllie(emblem, msg) {
-		k.Allies = append(k.Allies, new(Kingdom))
+		k.Allies = append(k.Allies, &Kingdom{Name: name, Emblem: emblem})
 	}
 }
 

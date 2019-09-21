@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
+	"log"
 	"os"
 )
 
@@ -38,23 +39,46 @@ func parseOptions() (int, error) {
 	return option, nil
 }
 
+func parseMessages() (string, string, error) {
+	var kingdomName, msg string
+	_, err := fmt.Scanf("%s %s", &kingdomName, &msg)
+	if err != nil {
+		log.Fatalln(err)
+		return kingdomName, msg, err
+	}
+
+	return kingdomName, msg, nil
+}
+
 func main() {
 
-	// shan :=
+	kingShan := newKing("King Shan")
 
 	for {
 		option, err := parseOptions()
 		if err != nil {
 			fmt.Println(err)
+			continue
 		}
 
 		switch option {
 		case 1:
-			getRuler()
+			if kingShan.isRuler() {
+				fmt.Println(kingShan.Name)
+			} else {
+				fmt.Println("NONE")
+			}
 		case 2:
-			getAllies()
+			for _, allie := range kingShan.Kingdom.Allies {
+				fmt.Printf("%s ", allie.Name)
+			}
 		case 3:
-			parseMessages()
+			kingdomName, msg, err := parseMessages()
+			if err != nil {
+				fmt.Println(err)
+				continue
+			}
+			kingShan.Kingdom.makeAlliance(kingdomName, msg)
 		}
 	}
 }
