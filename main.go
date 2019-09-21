@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"os"
 )
@@ -12,21 +13,7 @@ func showInstructions() {
 	fmt.Print("> ")
 }
 
-func rcvInput(inputStream *os.File) (int, error) {
-	// reader := bufio.NewReader(inputStream)
-	// optionsStr, err := reader.ReadString('\n')
-	// if err != nil {
-	// 	return 0, err
-	// }
-
-	// i, err := strconv.Atoi(optionsStr)
-	// if err != nil {
-	// 	fmt.Println("i: ", err)
-	// 	return 0, err
-	// }
-	// fmt.Println("i: ", i)
-
-	// return i, nil
+func getOption(inputStream *os.File) (int, error) {
 	var i int
 	_, err := fmt.Scanf("%d", &i)
 
@@ -37,31 +24,37 @@ func rcvInput(inputStream *os.File) (int, error) {
 	return i, nil
 }
 
-func parseInput() {
+func parseOptions() (int, error) {
 	showInstructions()
-	option, err := rcvInput(os.Stdin)
+	option, err := getOption(os.Stdin)
 	if err != nil {
-		fmt.Println(err)
-		return
+		return 0, err
 	}
 
 	if option < 1 || option > 3 {
-		fmt.Println("invalid option")
-		return
+		return 0, errors.New("invalid option")
 	}
 
-	action(option)
-}
-
-func action(option int) {
-	switch option {
-	case 1:
-
-	}
+	return option, nil
 }
 
 func main() {
+
+	// shan :=
+
 	for {
-		parseInput()
+		option, err := parseOptions()
+		if err != nil {
+			fmt.Println(err)
+		}
+
+		switch option {
+		case 1:
+			getRuler()
+		case 2:
+			getAllies()
+		case 3:
+			parseMessages()
+		}
 	}
 }
