@@ -1,14 +1,13 @@
 # Tame Of Thrones
 
+## To run:
 ```
 go build;
 ./tame-of-thrones
 ```
 
-Kingdom | Emblem
---------|--------
-LAND | Panda
-WATER | Octopus
-ICE | Mammoth
-AIR | Owl
-FIRE | Dragon
+## To run unit tests:
+
+```
+go test -cover
+```
