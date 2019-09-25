@@ -19,6 +19,9 @@ func newKing(name string) *King {
 }
 
 func (k *King) isRuler() bool {
+	if k.Kingdom == nil {
+		return false
+	}
 	return len(k.Kingdom.Allies) >= 3
 }
 
