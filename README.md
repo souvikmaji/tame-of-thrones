@@ -1,5 +1,10 @@
 # Tame Of Thrones
 
+```
+go build;
+./tame-of-thrones
+```
+
 Kingdom | Emblem
 --------|--------
 LAND | Panda
