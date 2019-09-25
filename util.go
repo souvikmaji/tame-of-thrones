@@ -16,7 +16,7 @@ func emblem(name string) string {
 
 func countChar(msg string) map[rune]int {
 	countMap := make(map[rune]int)
-	for _, char := range msg {
+	for _, char := range strings.ToLower(msg) {
 		countMap[char]++
 	}
 
