@@ -39,3 +39,49 @@ func TestCountChar(t *testing.T) {
 	}
 
 }
+
+func TestEmblem(t *testing.T) {
+	tests := map[string]struct {
+		input  string
+		output string
+	}{
+		"land": {
+			input:  "land",
+			output: "panda",
+		},
+		"water": {
+			input:  "water",
+			output: "octopus",
+		},
+		"air": {
+			input:  "air",
+			output: "owl",
+		},
+		"ice": {
+			input:  "ice",
+			output: "mammoth",
+		},
+		"fire": {
+			input:  "fire",
+			output: "dragon",
+		},
+		"Title Case": {
+			input:  "Fire",
+			output: "dragon",
+		},
+		"not found": {
+			input:  "hello",
+			output: "",
+		},
+		"empty string": {
+			input:  "",
+			output: "",
+		},
+	}
+
+	for testName, test := range tests {
+		t.Logf("Running test case %s", testName)
+		assert.Equal(t, test.output, emblem(test.input))
+	}
+
+}
