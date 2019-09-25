@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// King - everu kingdom has a king
+// King - every kingdom has a king
 type King struct {
 	Name    string
 	Kingdom *Kingdom
