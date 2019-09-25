@@ -2,18 +2,18 @@ package main
 
 // Kingdom names
 const (
-	Land  = "LAND"
-	Water = "WATER"
-	Ice   = "ICE"
-	Air   = "AIR"
-	Fire  = "FIRE"
+	Land  = "land"
+	Water = "water"
+	Ice   = "ice"
+	Air   = "air"
+	Fire  = "fire"
 )
 
 // Kingdom emblems
 const (
-	Panda   = "Panda"
-	Octopus = "Octopus"
-	Mammoth = "Mammoth"
-	Owl     = "Owl"
-	Dragon  = "Dragon"
+	Panda   = "panda"
+	Octopus = "octopus"
+	Mammoth = "mammoth"
+	Owl     = "owl"
+	Dragon  = "dragon"
 )

@@ -28,24 +28,8 @@ func isAllie(emblem, msg string) bool {
 	return true
 }
 
-func countChar(msg string) map[rune]int {
-	countMap := make(map[rune]int)
-	for _, char := range msg {
-		countMap[char]++
 	}
 
-	return countMap
-}
-
-// TODO kingdom factory
-func (k Kingdom) emblem(name string) string {
-	emblems := map[string]string{
-		Land:  Panda,
-		Water: Octopus,
-		Ice:   Mammoth,
-		Air:   Owl,
-		Fire:  Dragon,
 	}
 
-	return emblems[name]
 }
